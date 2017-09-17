@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <script>
+
+function aa()
+{
+    var a=document.getElementById('ccc');
+    var w=a.clientWidth;
+    var h=a.clientHeight;
+    console.log(w,h);
+
+    var b=document.getElementById('ddd');
+    b.style.position='absolute';
+    b.style.left=parseInt(w/2)+'px';
+    b.style.top=parseInt(h/2)+'px';
+}
+window.onload=aa;
+window.onresize=aa;
+        </script>
+
+
+
+        <style type="text/css">
+.bb{border:1px solid #000;}
+        </style>
+    </head>
+    <body>
+        <div id='ccc'>
+            <div id='ddd'>
+                <div class="bb" style="display:inline-block;transform:scale(2,2)" >
+                    <div class="bb" style="width:150px;height:150px">
+                        123
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,2 @@
+
+{{(1-y11)z, y12 z, y13 z, ps_x+vt_x+(-ps_x+pr_x-pr_x(1-y11) -pr_y y12-pr_z y13) z},{y21 z, (1-y22)z, y23 z,ps_y+p+(pr_y-ps_y-pr_x y21-pr_y(1-y22)-pr_z y23)z}, {y31 z, y32 z, (1-y33)z,ps_z+vt_z+(pr_z-ps_z-pr_x y31-pr_y y32-pr_z(1-y33))z},{0,0,0,1}}

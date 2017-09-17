@@ -1,0 +1,96 @@
+<html>
+    <head>
+        <title>rotate</title>
+        <script src="rotate.js"></script>
+        <script>
+var point=new Array(100,0,0);
+var new_point=new Array();
+var vector=new Array(0,1,0);
+var ang=0;
+function pp()
+{
+    console.log('aa');
+}
+
+function rr(perspective,vector,vector_nodes,dom_nodes){
+    //document.getElementById("r1").style.transform='translate(20px,20px)';
+
+    console.log('aa');
+    ang+=10;
+    rotateNodes(perspective,vector,ang,vector_nodes,dom_nodes);
+   /* new_point=rotate_map(1111,point,vector,ang);*/
+   /* var point2=new_point['2d']
+        document.getElementById("r1").style.transform='translate('+point2[0]+'px,'+point2[1]+'px) scale('+point2[2]+','+point2[2]+')';
+        */
+                };
+
+
+                function rotateNodes(perspective,vector,angle,vector_nodes,dom_nodes)
+                {
+                    for (var i=0;i<vector_nodes.length;i++)
+                    {
+                        var info=rotate_map(perspective,vector_nodes[i],angle);
+                        var point_2d=info['2d'];
+                       // console.log(node,vector);
+                        dom_nodes[i].style.transform='translate('+point_2d[0]+'px,'+point_2d[1]+'px) scale('+point_2d[2]+','+point_2d[2]+')';
+                    }
+                        
+                }
+
+                function createNodes(perspective,father_div,vector_nodes,p_left,p_top)
+                {
+                    var dom_nodes=new Array();
+                    for(var i=0;i<vector_nodes.length;i++)
+                    {
+                        var node=vector_nodes[i];
+                        var vector_tmp=new Array(1,0,0);
+                        var d1=document.createElement('div');
+                        d1.setAttribute('style','position:absolute;left:400px;top:200px;width:100px;height:70px;');
+                        var d2=document.createElement('div');
+                        var info=rotate_map(perspective,node,vector_tmp,0);
+                        var point_2d=info['2d'];
+                       // console.log(node,vector);
+                        d2.style.transform='translate('+point_2d[0]+'px,'+point_2d[1]+'px) scale('+point_2d[2]+','+point_2d[2]+')';
+                            var h=document.createElement('h2');
+                            h.innerHTML=i;
+                            father_div.appendChild(d1);
+                            d1.appendChild(d2);
+                            d2.appendChild(h);
+                            dom_nodes[i]=d2;
+                            }
+                            //console.log(nodes);
+                            return dom_nodes;
+
+                            }
+                            window.onload=function(){
+
+
+                             /*   var d=document.createElement('div')
+                                    d.setAttribute('style','position:absolute;left:400px;top:200px;width:100px;height:70px;background-color:yellow;');
+                                var h=document.createElement('h3');
+                                h.innerHTML='A';
+                                d.appendChild(h);
+                                document.getElementById("r1").appendChild(d);
+                                */
+
+                                //document.getElementById("r1").setAttribute('style','margin:30px;width:100px;height:70px;background-color:yellow;');
+                                //window.setInterval(rr,20);
+                                var points=scatter_point(20,100);
+                               // console.log(points);
+                                var dom_nodes=createNodes(110,document.getElementById('r1'),points);
+                                
+                                document.getElementById("b").onclick=pp();//rr(110,vector,points,dom_nodes);
+
+                            };
+
+        </script>
+    </head>
+    <body>
+        <button id="b" onclick="pp()">旋转</button>
+        <div style="transform:translate(300px,300px)">
+            <div id="r1" > 
+                <!--  <h3>ABC</h3>-->
+            </div>
+    </body>
+</html>
+

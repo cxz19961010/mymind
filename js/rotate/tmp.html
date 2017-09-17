@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+div
+{
+width:100px;
+height:100px;
+background:red;
+position:relative;
+}
+</style>
+
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var oldY= null;
+        var isdown = false;
+        $("#testcss").mousedown(function(e){
+            isdown = true;
+            oldY = e.clientY;
+        });
+        $("html").mousemove(function(e){
+            if(isdown){
+                $("#testcss").css("transform","rotate("+(e.clientY-oldY)+"deg)");
+            }
+        });
+        $("html").mouseup(function(e){
+            isdown = false;
+            oldY = null;
+        });
+    });
+</script>
+</head>
+<body>
+    <div id="testcss"></div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <title>rotate</title>
+        <script src="new_rotate.js"></script> 
+        <link rel="stylesheet" href="style.css"/>
+
+        <style>
+.grad1 {
+    height: 5px;
+    box-shadow:0px 0px 2px 3px white;
+    border-radius: 3px;
+    outline:0;
+
+    background: linear-gradient(white, #f8f8f8); /* 标准的语法（必须放在最后） */
+}
+            .grad1:hover {
+                height: 10px;
+                box-shadow:0px 0px 10px 10px white;
+                background: linear-gradient(white,white);
+
+            }
+        </style>
+
+    </head>
+    <body>
+        <div style="height:40px"></div>
+        <div  style=" display:inline-block;width:200px;">
+            <div class="grad1"></div>
+        </div>
+
+        <button id="b">旋转</button>
+        <div id="r1" style="height:600px">
+            <!--  <h3>ABC</h3>-->
+        </div>
+        <script>
+var angle=0;
+var vector=[1,0,0];
+var point=[0,0,0];
+
+
+var num=2;
+node.main_element_iu(document.getElementById('r1')); 
+var nodes=scatter_nodes(num,300);
+console.log(nodes);
+for(var i=0;i<num;i++)
+{ 
+    var h=document.createElement('li');
+    var a=document.createElement('a');
+    h.appendChild(a);
+    a.className='round red';
+    a.innerHTML=i;
+    nodes[i].element.appendChild(h);
+}
+
+var l=document.createElement('div');
+l.className="grad1";
+
+link.main_element_iu(document.getElementById('r1'));
+links=new Array();
+links[0]=new Link(nodes[0],nodes[1]);
+links[0].element.append(l);
+
+document.oncontextmenu=function(){return true;}; 
+document.onselectstart=function(){return false;};
+
+mouse_rotate_init(document.getElementById('r1'),nodes);
+
+
+
+
+
+        </script>
+    </body>
+</html>
+

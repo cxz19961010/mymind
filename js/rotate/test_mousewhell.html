@@ -1,0 +1,13 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <div id='a'>
+        </div>
+        <script>
+            document.onwheel=function(event){
+                document.getElementById('a').innerHTML+='\n'+event.deltaY;
+            }
+        </script>
+    </body>
+            
